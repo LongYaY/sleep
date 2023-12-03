@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./sleep.css" />
+    <link rel="stylesheet" href="./icon.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <div id="head">
+        <ul id="head-top">
+          <li id="head-title">小睡眠</li>
+          <li id="icon-box">
+            <i
+              class="iconfont icon-huo"
+              style="font-size: 100px; color: white"
+              id="icon-one"
+            ></i>
+            <p>红泥小炉</p>
+          </li>
+          <li>
+            <i class="iconfont icon-zanting" id="play" style="color: white"></i>
+          </li>
+        </ul>
+        <ul id="head-time">
+          <li>
+            <button></button>
+            <p>5</p>
+          </li>
+          <li>
+            <button></button>
+            <p>10</p>
+          </li>
+          <li>
+            <button></button>
+            <p>15</p>
+          </li>
+          <li>
+            <button></button>
+            <p>30</p>
+          </li>
+          <li>
+            <button></button>
+            <p>60</p>
+          </li>
+          <li>
+            <button></button>
+            <p>∞</p>
+          </li>
+        </ul>
+      </div>
+      <div id="nav">
+        <ul>
+          <li>全部</li>
+          <li>雷雨</li>
+          <li>江湖</li>
+          <li>课堂</li>
+          <li>自然</li>
+          <li>ASMR</li>
+          <li>动物</li>
+          <li>旋律</li>
+          <li>脑波</li>
+          <li>生活</li>
+          <li>城市</li>
+          <li>宝宝</li>
+        </ul>
+      </div>
+      <div id="content">
+        <ul>
+          <!-- <li>
+            <div id="aa"><i class="iconfont icon-huo"></i></div>
+            <p>红泥小炉</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-beike-xiantiao"></i></div>
+            <p>浪卷海贝</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-yueliang"></i></div>
+            <p>夜虫唧唧</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-shanshui"></i></div>
+            <p>空山飞鸟</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-a-06"></i></div>
+            <p>雪落伞上</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-tuya_huabanfuben"></i></div>
+            <p>雨落屋檐</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon--mianshi"></i></div>
+            <p>一碗面条</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-fries"></i></div>
+            <p>一包薯片</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-shengxianshuiguo"></i></div>
+            <p>一颗苹果</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-xiatian-"></i></div>
+            <p>一杯冰水</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-Starfish"></i></div>
+            <p>大海深处</p>
+          </li>
+          <li>
+            <div id="aa"><i class="iconfont icon-huoche"></i></div>
+            <p>高速铁路</p>
+          </li> -->
+        </ul>
+      </div>
+      <div id="footer">
+        <ul>
+          <li>
+            <i class="iconfont icon-yl"></i>
+            <p>声音</p>
+          </li>
+          <li>
+            <i class="iconfont icon-yuanbao"></i>
+            <p>助眠</p>
+          </li>
+          <li>
+            <i class="iconfont icon-daquan"></i>
+            <p>呼吸</p>
+          </li>
+          <li>
+            <i class="iconfont icon-shoucang"></i>
+            <p>精选</p>
+          </li>
+          <li>
+            <i class="iconfont icon-github"></i>
+            <p>我的</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <audio id="music" controls>
+      <source src="./音乐/y1894.mp3" type="" />
+    </audio>
+    <script>
+      let index = 0;
+      let arr = [
+        {
+          id: "1",
+          name: "红泥小炉",
+          icon: "iconfont icon-huo",
+          src: "./音乐/y1894.mp3",
+        },
+        {
+          id: "2",
+          name: "浪卷海贝",
+          icon: "iconfont icon-beike-xiantiao",
+          src: "./音乐/y1826.mp3",
+        },
+        {
+          id: "3",
+          name: "夜虫唧唧",
+          icon: "iconfont icon-yueliang",
+          src: "./音乐/y1969.mp3",
+        },
+        {
+          id: "4",
+          name: "空山飞鸟",
+          icon: "iconfont icon-shanshui",
+          src: "./音乐/y1903.mp3",
+        },
+        {
+          id: "5",
+          name: "雪落伞上",
+          icon: "iconfont icon-a-06",
+          src: "./音乐/y1966.mp3",
+        },
+        {
+          id: "6",
+          name: "雨落屋檐",
+          icon: "iconfont icon-tuya_huabanfuben",
+          src: "./音乐/y1972.mp3",
+        },
+        {
+          id: "7",
+          name: "一碗面条",
+          icon: "iconfont icon--mianshi",
+          src: "./音乐/y1988.mp3",
+        },
+        {
+          id: "8",
+          name: "一包薯片",
+          icon: "iconfont icon-fries",
+          src: "./音乐/y2024.mp3",
+        },
+        {
+          id: "9",
+          name: "一颗苹果",
+          icon: "iconfont icon-shengxianshuiguo",
+          src: "./音乐/y2037.mp3",
+        },
+        {
+          id: "10",
+          name: "一杯冰水",
+          icon: "iconfont icon-xiatian-",
+          src: "./音乐/y2113.mp3",
+        },
+        {
+          id: "11",
+          name: "大海深处",
+          icon: "iconfont icon-Starfish",
+          src: "./音乐/y2126.mp3",
+        },
+        {
+          id: "12",
+          name: "高速铁路",
+          icon: "iconfont icon-huoche",
+          src: "./音乐/y2067.mp3",
+        },
+      ];
+      let arr1 = [
+        {
+          name: "红泥小炉",
+          icon: "iconfont icon-huo",
+          back: "rgb(255,123,92)",
+        },
+        {
+          name: "浪卷海贝",
+          icon: "iconfont icon-beike-xiantiao",
+          back: "rgb(63,168,244)",
+        },
+        {
+          name: "夜虫唧唧",
+          icon: "iconfont icon-yueliang",
+          back: "rgb(6,87,132)",
+        },
+        {
+          name: "空山飞鸟",
+          icon: "iconfont icon-shanshui",
+          back: "rgb(61,196,141)",
+        },
+        {
+          name: "雪落伞上",
+          icon: "iconfont icon-a-06",
+          back: "rgb(6,87,132)",
+        },
+        {
+          name: "雨落屋檐",
+          icon: "iconfont icon-tuya_huabanfuben",
+          back: "rgb(6,87,132)",
+        },
+        {
+          name: "一碗面条",
+          icon: "iconfont icon--mianshi",
+          back: "rgb(255,123,92)",
+        },
+        {
+          name: "一包薯片",
+          icon: "iconfont icon-fries",
+          back: "rgb(255,123,92)",
+        },
+        {
+          name: "一颗苹果",
+          icon: "iconfont icon-shengxianshuiguo",
+          back: "rgb(61,196,141)",
+        },
+        {
+          name: "一杯冰水",
+          icon: "iconfont icon-xiatian-",
+          back: "rgb(63,168,244)",
+        },
+        {
+          name: "大海深处",
+          icon: "iconfont icon-Starfish",
+          back: "rgb(63,168,244)",
+        },
+        {
+          name: "高速铁路",
+          icon: "iconfont icon-huoche",
+          back: "rgb(255,123,92)",
+        },
+      ];
+      let time = [
+        {
+          time: "5",
+          second: "5000",
+        },
+        {
+          time: "10",
+          second: "10000",
+        },
+        {
+          time: "15",
+          second: "15000",
+        },
+        {
+          time: "30",
+          second: "30000",
+        },
+        {
+          time: "60",
+          second: "60000",
+        },
+        {
+          time: "∞",
+          second: "",
+        },
+      ];
+      $(function () {
+        runderMusic();
+        // returnTime();
+        $("#play").click(playFun);
+        $("#content li").click(musicFun);
+      });
+      function musicFun() {
+        index = $(this).index();
+        toggle();
+        let icon = arr1[index].icon;
+        let name = arr1[index].name;
+        let color = arr1[index].back;
+        $("#icon-box").html(`<i class='${icon}'></i><p>${name}</p>`);
+        $("#icon-box i").css("font-size", "100px");
+        $("#icon-box i").css("color", "white");
+        $("#head").css("background-color", color);
+        $("#content li div")
+          .eq(index)
+          .addClass("jello-horizontal")
+          .parent()
+          .siblings()
+          .children()
+          .removeClass("jello-horizontal");
+      }
+      function toggle() {
+        $("#music")[0].src = arr[index].src;
+        $("#music")[0].play();
+        $("#play").removeClass("icon-zanting");
+        $("#play").addClass("icon-bofangzhong");
+        $("#content li")
+          .eq(index)
+          .addClass("content-list")
+          .siblings()
+          .removeClass("content-list");
+      }
+      function playFun() {
+        if ($("#play").hasClass("icon-bofangzhong")) {
+          $("#music")[0].pause();
+        } else {
+          $("#music")[0].play();
+        }
+        $("#play").toggleClass("icon-zanting icon-bofangzhong");
+      }
+      // function returnTime() {
+      //   let html = "";
+      //   time.forEach((item) => {
+      //     html += ``;
+      //   });
+      // }
+      function runderMusic() {
+        let html = "";
+        arr.forEach((item, index) => {
+          html += `<li>
+                      <div><i class="${item.icon}"></i></div>
+                      <p>${item.name}</p>
+                   </li>`;
+        });
+        $("#content ul").html(html);
+      }
+    </script>
+  </body>
+</html>
